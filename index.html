@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speci-X | Automated Cable Specimen Preparation & Inspection Digital Twin</title>
+    <meta name="description" content="3D Interactive Digital Twin and AI Inspection Dashboard for Speci-X - Industrial Automated Cable Specimen Preparation System compliant with IS 10810 & IS 7098 standards." />
+    <!-- Google Fonts for modern industrial tech typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      /* Immediate 0ms Native Boot Loader (Prevents Any Blank/Black Canvas) */
+      #pre-root-loader {
+        position: fixed;
+        inset: 0;
+        background-color: #020617;
+        color: #f8fafc;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        z-index: 99999;
+        user-select: none;
+        padding: 24px;
+      }
+      .loader-grid {
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px);
+        background-size: 28px 28px;
+        opacity: 0.2;
+      }
+      .loader-glow {
+        position: absolute;
+        width: 320px;
+        height: 320px;
+        background: radial-gradient(circle, rgba(14, 165, 233, 0.18) 0%, rgba(2, 6, 23, 0) 70%);
+        border-radius: 50%;
+      }
+      .pulse-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #38bdf8;
+        box-shadow: 0 0 16px #38bdf8;
+        animation: pulse 1.5s infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.4; transform: scale(0.85); }
+      }
+      .progress-bar-track {
+        width: 100%;
+        max-width: 340px;
+        height: 8px;
+        background-color: #0f172a;
+        border: 1px solid #1e293b;
+        border-radius: 9999px;
+        overflow: hidden;
+        margin-top: 18px;
+        padding: 2px;
+      }
+      .progress-bar-fill {
+        height: 100%;
+        border-radius: 9999px;
+        background: linear-gradient(to right, #06b6d4, #3b82f6);
+        box-shadow: 0 0 10px #38bdf8;
+        animation: initialFill 2.2s ease-out forwards;
+      }
+      @keyframes initialFill {
+        0% { width: 8%; }
+        25% { width: 35%; }
+        60% { width: 68%; }
+        85% { width: 88%; }
+        100% { width: 95%; }
+      }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased overflow-hidden select-none">
+    <div id="root">
+      <!-- 0ms Native Loader: Appears instantly before JavaScript even downloads -->
+      <div id="pre-root-loader">
+        <div class="loader-grid"></div>
+        <div class="loader-glow"></div>
+        <div style="position: relative; z-index: 10; text-align: center; max-width: 440px;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px;">
+            <div class="pulse-dot"></div>
+            <span style="font-family: 'Chakra Petch', monospace; font-weight: 700; font-size: 20px; letter-spacing: 0.15em; color: #ffffff;">SPECI-X</span>
+            <span style="font-family: monospace; font-size: 10px; background: rgba(14, 165, 233, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); padding: 2px 6px; border-radius: 4px; font-weight: bold;">DIGITAL TWIN</span>
+          </div>
+
+          <p style="color: #94a3b8; font-size: 13px; margin: 0 0 8px 0; font-weight: 500;">
+            Automated Cable Specimen Preparation &amp; AI Inspection System
+          </p>
+
+          <div style="display: flex; justify-content: space-between; font-family: monospace; font-size: 11px; color: #38bdf8; margin-top: 24px; font-weight: 600;">
+            <span>DIGITAL TWIN INITIALIZING</span>
+            <span>LOADING 3D SCENE...</span>
+          </div>
+
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill"></div>
+          </div>
+
+          <div style="margin-top: 14px; font-family: monospace; font-size: 11px; color: #64748b;">
+            Compiling WebGL Shaders &bull; Cable Physics &bull; Sensors
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
